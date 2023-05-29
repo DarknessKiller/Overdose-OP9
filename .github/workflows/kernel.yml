@@ -28,7 +28,7 @@ jobs:
       run: |
         sed -i s/build-user/itsgoyoung/g build/_setup_env.sh
         sed -i s/build-host/github-actions/g build/_setup_env.sh
-        BUILD_CONFIG=kernel/msm-5.4/build.config.msm.lahaina VARIANT=nqgki DEVICE=9P LTO=full POLLY=1 BUILD_KERNEL=1 build/build.sh
+        BUILD_CONFIG=kernel/msm-5.4/build.config.msm.lahaina VARIANT=nqgki DEVICE=9P LTO=thin POLLY=1 BUILD_KERNEL=1 build/build.sh
     - name: Create zip
       run: |
         cp out/msm-5.4-lahaina-nqgki/dist/Image ak3/
