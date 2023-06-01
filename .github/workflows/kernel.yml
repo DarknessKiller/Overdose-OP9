@@ -2,6 +2,7 @@ name: Kernel Build CI
 
 on:
   push:
+  workflow_dispatch:
 
 env:
   GH_TOKEN: ${{ GITHUB.TOKEN }}
@@ -15,7 +16,7 @@ jobs:
       run: sudo apt update -y && sudo apt install -y repo elfutils libarchive-tools
     - name: Repo sync
       run: |
-        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b eva-oneplus-5.4 --depth=1
+        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
     - name: Sync Clang
       run: |
@@ -49,7 +50,7 @@ jobs:
       run: sudo apt update -y && sudo apt install -y repo elfutils wget tar
     - name: Repo sync
       run: |
-        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b eva-oneplus-5.4 --depth=1
+        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
     - name: Sync PGO Profiles
       run: |
@@ -86,7 +87,7 @@ jobs:
       run: sudo apt update -y && sudo apt install -y repo elfutils wget tar
     - name: Repo sync
       run: |
-        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b eva-oneplus-5.4 --depth=1
+        repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
     - name: GCC Build
       run: |
