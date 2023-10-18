@@ -18,6 +18,10 @@ jobs:
       run: |
         repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
+    - name: KernelSU sync
+      run: |
+        cd kernel/msm-5.4
+        git submodule update --init --recursive
     - name: Sync Clang
       run: |
         mkdir -p prebuilts-master/clang/host/linux-x86/clang-r450784d/
@@ -52,6 +56,10 @@ jobs:
       run: |
         repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
+    - name: KernelSU sync
+      run: |
+        cd kernel/msm-5.4
+        git submodule update --init --recursive
     - name: Sync PGO Profiles
       run: |
         mkdir -p /home/runner/work/oneplus9pro/oneplus9pro/out/msm-5.4-lahaina-nqgki/kernel/msm-5.4
@@ -89,6 +97,10 @@ jobs:
       run: |
         repo init -u https://github.com/DarknessKiller/android_kernel_manifest -b overdose-oneplus-5.4 --depth=1
         repo sync --no-tags --no-clone-bundle -j$(nproc --all)
+    - name: KernelSU sync
+      run: |
+        cd kernel/msm-5.4
+        git submodule update --init --recursive
     - name: GCC Build
       run: |
         sed -i s/build-user/mrdarkness/g build/_setup_env.sh
